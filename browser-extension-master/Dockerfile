@@ -1,0 +1,2 @@
+FROM node:9.4.0
+USER 1000

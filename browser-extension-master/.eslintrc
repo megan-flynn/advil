@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "settings": {
+    "react": {
+      "version": "16.0"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "webextensions": true
+  }
+}
