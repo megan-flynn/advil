@@ -1,0 +1,55 @@
+{
+  "name": "appian-browser-extension",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "popper.js": "^1.14.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-ga": "^2.5.3",
+    "react-linkify": "^0.2.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "precommit": "pretty-quick staged",
+    "start": "react-app-rewired start",
+    "start:firefox": "web-ext run",
+    "build": "react-app-rewired build",
+    "lint": "eslint src/",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject",
+    "pack": "rm -rf ./publish && mkdir ./publish && cd ./build && zip -r ../publish/AppianBrowserExtension.zip * -x testEntry.html",
+    "preaddons-lint": "npm run build && npm run pack",
+    "addons-lint": "addons-linter AppianBrowserExtension.zip",
+    "deploy": "./bin/publishExtension.sh"
+  },
+  "webExt": {
+    "sourceDir": "./build"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.11",
+    "addons-linter": "^1.5.0",
+    "chrome-webstore-upload-cli": "^1.2.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
+    "react-app-rewired": "^1.4.0",
+    "sinon-chrome": "^2.2.1",
+    "web-ext": "^2.9.3",
+    "web-ext-submit": "^2.9.2",
+    "write-file-webpack-plugin": "^4.2.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "last 5 Chrome version"
+  ]
+}

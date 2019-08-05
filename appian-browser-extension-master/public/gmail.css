@@ -1,0 +1,65 @@
+.appian-iframe {
+  display: block !important;
+  border: none !important;
+  margin: 60px auto auto auto !important;
+  width: 80% !important;
+  height: calc(100% - 120px);
+}
+
+.appian-modal {
+  display: none;
+  position: fixed !important;
+  z-index: 100000 !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+  background-color: rgba(0,0,0,0.80) !important;
+}
+
+.appian-modal-control {
+  display: block !important;
+  margin-right: 10px !important;
+  color: rgba(255,255,255,0.8) !important;
+  float: right !important;
+  font-size: 32px !important;
+  font-weight: bold !important;
+}
+
+a.appian-modal-control {
+  font-size: 16px !important;
+  line-height: 35px !important;
+}
+
+.appian-modal-control:hover,
+.appian-modal-control:focus {
+  color: rgba(255,255,255,1) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+a.appian-modal-control:hover,
+a.appian-modal-control:focus {
+  text-decoration: underline !important;
+}
+
+.link-icon {
+  margin: 0 0 0 3px !important;
+  padding: 0 !important;
+  display: inline !important;
+  border: none !important;
+  position: relative !important;
+  bottom: -2px !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.appian-footer {
+  display: block !important;
+  position: absolute !important;
+  margin: 0 10px !important;
+  color: rgba(255,255,255,0.8) !important;
+  float: bottom !important;
+  font-size: 12px !important;
+}

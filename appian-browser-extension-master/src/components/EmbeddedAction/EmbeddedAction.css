@@ -1,0 +1,17 @@
+.frame-content.loading {
+  background-image: url('../../img/progress-dots.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 10%;
+}
+
+.formBody {
+  height: 400px;
+  width: 100%;
+}
+
+.formBody > iframe {
+  height: 100%;
+  width: 100%;
+  border: none;
+}

@@ -1,0 +1,83 @@
+variables:
+  NODE_IMAGE_TAG: $CI_REGISTRY_IMAGE/node-nonroot:$CI_COMMIT_SHA
+image: $NODE_IMAGE_TAG
+stages:
+  - prepare
+  - install
+  - test
+  - build
+  - pack
+  - deploy
+Build node-nonroot image:
+  stage: prepare
+  image: docker:stable
+  services:
+    - docker:dind
+  tags:
+    - docker
+  retry: 2
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKERFILE: "."
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $NODE_IMAGE_TAG $DOCKERFILE
+    - docker push $NODE_IMAGE_TAG
+install:
+  stage: install
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules
+test:
+  stage: test
+  dependencies:
+    - install
+  script:
+    - npm run test
+lint:
+  stage: test
+  dependencies:
+    - install
+  script:
+    - npm run lint
+build:
+  stage: build
+  dependencies:
+    - install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build
+pack:
+  image:
+    name: kramos/alpine-zip
+    entrypoint: [""]
+  stage: pack
+  variables:
+    GIT_STRATEGY: none
+  dependencies:
+    - build
+  script:
+    - rm -rf ./publish && mkdir ./publish && cd ./build && zip -r ../publish/AppianBrowserExtension.zip * -x testEntry.html
+  artifacts:
+    name: $CI_COMMIT_REF_SLUG
+    paths:
+      - publish
+deploy:
+  tags:
+    - infra.prod.us-east-1
+  stage: deploy
+  dependencies:
+    - install
+    - build
+    - pack
+  script:
+    - npm run deploy
+  when: manual
+  environment:
+    name: production
+  only:
+    - master

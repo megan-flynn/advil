@@ -1,0 +1,18 @@
+.pageLinkIcon {
+  vertical-align: middle;
+}
+
+.inner_button, .btn.inner_button {
+  border: none;
+  background: transparent;
+  vertical-align: inherit;
+  height: 30px;
+  overflow: visible;
+  align-self: center;
+  user-select: none;
+  box-shadow: none;
+}
+
+.inner_button:focus {
+  outline: none;
+}

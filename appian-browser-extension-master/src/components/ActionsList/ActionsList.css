@@ -1,0 +1,89 @@
+.actionsListHeader {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionsListTitle {
+  margin: 15px 0 10px 20px;
+  font-weight: 600;
+  color: #222;
+}
+
+.actionsListTitle.deemphasize,
+.pinAction {
+  font-size: 16px;
+}
+
+.actionsListTitle > .actionsHome,
+.actionsTypes a.inactive,
+.pinAction > a {
+  text-decoration: rgb(70, 112, 140) underline;
+  cursor: pointer;
+}
+
+.pinAction img {
+  height: 20px;
+  width: 20px;
+}
+
+.actionsTypes {
+  font-size: 16px;
+}
+
+.actionsTypes a.active {
+  color: rgb(70, 112, 140);
+  font-weight: bold;
+}
+
+.actionListLoading {
+  height: 400px;
+  width: 100%;
+  background-image: url('../../img/progress-dots.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 55%;
+  background-size: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionsItems {
+  padding: 0 0 0 10px;
+  font-size: 1.3em;
+}
+
+.actionsItems > p {
+  padding: 0 0 0 10px;
+}
+
+.actionsItems .pinIcon {
+  height: 12px;
+  width: 12px;
+  margin: 0 0 0 5px;
+}
+
+.actionsItems > li {
+  height: 30px;
+  margin: 10px 0; /* not needed, just to add space between the li's */
+  background: url('../../img/action-icon.png') no-repeat left center;
+  list-style: none; /* Get rid of the default bullet points */
+  padding-left: 40px; /* Offsets the text. Needs to be at least the width of your image */
+  line-height: 20px; /* Might have to play with this value a bit */
+  overflow: hidden;
+  display: table;
+}
+
+.actionName {
+  margin: 0 6px 0 0;
+  text-decoration: rgb(70, 112, 140) underline;
+  cursor: pointer;
+  display: table-cell;
+}
+
+.starIcon,
+.unstarIcon {
+  margin-left: 5px;
+}

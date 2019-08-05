@@ -1,0 +1,93 @@
+/* Style the tab */
+.tabBar {
+  overflow: hidden;
+  /* border: 1px solid #ccc; */
+  /* background-color: #f1f1f1; */
+  background-color: rgb(70, 112, 140);
+  font-size: 1.4em;
+  height: 60px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabBar button {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0 1px 0 1px;
+  transition: 0.3s;
+  height: 60px;
+  width: 115px;
+}
+
+.tabBar button:disabled {
+  cursor: default;
+  color: gainsboro;
+}
+
+/* Change background color of buttons on hover */
+.tabBar button:not(:disabled):hover {
+  filter: brightness(125%);
+}
+
+.makeWhite {
+  filter: brightness(0) invert(1);
+}
+
+button:disabled .makeWhite {
+  filter: brightness(0) invert(1) brightness(80%);
+}
+
+/* Create an active/current tablink class */
+.tabBar button:not(:disabled).active {
+  filter: brightness(125%);
+}
+.tabBar button div.buttonLabel {
+  padding-bottom: 5px;
+  border-bottom: 0px;
+}
+.tabBar button:not(:disabled).active div.buttonLabel {
+  padding-bottom: 3px !important;
+  border-bottom: 2px solid #fff !important;
+}
+
+.tabBar button div.buttonBadge {
+    border-radius: 15%;
+    background-color: rgb(80, 135, 236);
+    color: #fff;
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: center;
+    position: absolute;
+    right: 12px;
+    bottom: 2px;
+    font-size: 12px;
+}
+
+.tabBar .endButton {
+  float: right;
+}
+
+/* Style the tab content */
+.tabContent {
+  padding: 8px;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  overflow-y: auto;
+  height: 470px;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
